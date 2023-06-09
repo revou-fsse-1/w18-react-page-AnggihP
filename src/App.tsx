@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { TeamList } from "./components/TeamList";
+import { RegisterPage } from "./components/RegisterPage/RegisterPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [likes, setLikes] = useState<number>(0);
+  const [searchFilter, setSearchFilter] = useState<string>("");
+  const [registerPageOpen, setRegisterPageOpen] = useState<boolean>(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen flex flex-col justify-between bg-no-repeat bg-cover bg-fixed text-gray-200">
+      <Header likes={likes} searchFilter={searchFilter} setSearchFilter={setSearchFilter} />
+      <TeamList searchFilter={searchFilter} setLikes={setLikes} />
+      <Footer setRegisterPageOpen={setRegisterPageOpen} />
+      {registerPageOpen ? (
+        <RegisterPage
+          registerPageOpen={registerPageOpen}
+          setRegisterPageOpen={setRegisterPageOpen}
+        />
+      ) : (
+        ""
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
