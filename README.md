@@ -1,12 +1,12 @@
 # Simple Web Page featuring React
 
-# Preview
-
-![banner](./src/assets/preview.jpg)
-
 ## Introduction!
 
 This simple webpage is made for assignment of week-18 RevoU FSSE Madrid 2023. The idea was came from the hype of English Premier League 2022/2023 season. This webpage contains the team's logo of the participant.
+
+## Preview
+
+![banner](./src/assets/preview.jpg)
 
 ## Link
 
